@@ -1,7 +1,7 @@
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom"; // Import React Router
 import Home from "./pages/MainPage";
-import Game from "./pages/Game";
+import Game from "./pages/TestGame";
 
 const router = createBrowserRouter([
 
