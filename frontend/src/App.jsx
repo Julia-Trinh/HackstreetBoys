@@ -1,22 +1,34 @@
 import React from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom"; // Import React Router
-import Home from "./pages/MainPage";
-import NavBar from './components/NavBar'
+import { createBrowserRouter, RouterProvider, Navigate, Outlet } from "react-router-dom";
+import Home from "./pages/MainPage.jsx";
+import NavBar from './components/NavBar';
+
+const Layout = () => {
+  return (
+    <div>
+      <NavBar />
+      <Outlet />
+    </div>
+  );
+};
 
 const router = createBrowserRouter([
-  //any page that has the layout with the header will be a child of the root
   {
     path: "/",
-    element: <NavBar />,
+    element: <Layout />,
     children: [
       {
         index: true,
-        element: <Navigate to="/home" replace />
+        element: <Navigate to="/home" replace />, 
       },
       {
         path: "home",
         element: <Home />,
-      }
-    ]
+      },
+    ],
   },
 ]);
+
+export default function App() {
+  return <RouterProvider router={router} />;
+}

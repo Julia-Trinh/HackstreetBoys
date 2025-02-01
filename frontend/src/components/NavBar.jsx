@@ -1,6 +1,5 @@
 import { Outlet } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import './NavBar.css';
 
 const NavBar = () => {
 
@@ -14,7 +13,6 @@ const NavBar = () => {
                 </a> */}
                 <button onClick={() => navigate("/home")}>HOME</button>
             </div>
-            <main><Outlet/></main>
         </div>
     )
 };
