@@ -1,0 +1,16 @@
+/* Header container */
+.app-header {
+    background-color: #370F03; /* Brown background */
+    color: white; /* White text */
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    display: flex;
+    align-items: center; /* Vertically center the content */
+    justify-content: center; /* Horizontally center the content */
+  }
+  
+  /* Site logo */
+  .site-logo {
+    height: 50px; /* Adjust the height of the logo */
+    width: auto; /* Maintain aspect ratio */
+  }
