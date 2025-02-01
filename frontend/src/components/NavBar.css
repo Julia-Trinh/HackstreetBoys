@@ -1,0 +1,38 @@
+/* Navbar container */
+.navbar-container {
+    background-color: #AE9162; /* Light brown background */
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    display: flex;
+    justify-content: center; /* Center the buttons horizontally */
+  }
+  
+  /* Container for the buttons */
+  .navbar-buttons {
+    display: flex;
+    gap: 20px; /* Space between buttons */
+  }
+  
+  /* Button styling */
+  .nav-button {
+    background-color: #957B56; /* Darker brown background */
+    color: white; /* White text */
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  /* Button hover effect */
+  .nav-button:hover {
+    background-color: #7a6345; /* Slightly darker brown on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+  }
+  
+  /* Button active effect */
+  .nav-button:active {
+    background-color: #6a573b; /* Even darker brown when clicked */
+    transform: translateY(0); /* Reset lift effect */
+  }
