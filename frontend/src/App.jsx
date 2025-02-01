@@ -1,11 +1,13 @@
 import React from "react";
 import { createBrowserRouter, RouterProvider, Navigate, Outlet } from "react-router-dom";
-import Home from "./pages/MainPage.jsx";
+import Header from './components/Header'; 
 import NavBar from './components/NavBar';
+import Home from "./pages/MainPage.jsx";
 
 const Layout = () => {
   return (
     <div>
+      <Header />
       <NavBar />
       <Outlet />
     </div>

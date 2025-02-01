@@ -8,10 +8,9 @@ const NavBar = () => {
     return (
         <div>
             <div>
-                {/* <a onClick={() => navigate("/Home")}>
-                    <div><img src={"/SiteLogo.png"} h={"80px"} width={"100px"}/></div>
-                </a> */}
                 <button onClick={() => navigate("/home")}>HOME</button>
+                <button>PAGE 1</button>
+                <button>PAGE 2</button>
             </div>
         </div>
     )
