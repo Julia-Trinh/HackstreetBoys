@@ -1,15 +1,13 @@
 import React from "react";
 import "./SiteLogo.css";
+import logoImage from "./output.png"; // Adjust path based on location
 
 function Logo() {
-
     return (
-        <>
-            <h1>DWTT</h1>
-        </>
-    )
-
-
+        <div>
+            <img src={logoImage} alt="Logo Image" />
+        </div>
+    );
 }
 
 export default Logo;
