@@ -1,38 +1,38 @@
 /* Navbar container */
 .navbar-container {
-    background-color: #AE9162; /* Light brown background */
-    padding: 10px 20px;
+    background-color: #957B56; /* Darker brown background */
+    padding: 0; /* Remove horizontal padding */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    display: flex;
-    justify-content: center; /* Center the buttons horizontally */
+    width: 100%; /* Ensure the navbar spans the full width */
   }
   
   /* Container for the buttons */
   .navbar-buttons {
     display: flex;
-    gap: 20px; /* Space between buttons */
+    width: 100%; /* Ensure the container spans the full width */
   }
   
   /* Button styling */
   .nav-button {
-    background-color: #957B56; /* Darker brown background */
+    background-color: #AE9162; /* Lighter brown background */
     color: white; /* White text */
     border: none;
-    padding: 10px 20px;
+    padding: 15px 0; /* Increase vertical padding */
     font-size: 16px;
-    border-radius: 5px; /* Rounded corners */
+    flex: 1; /* Distribute space evenly among buttons */
+    text-align: center; /* Center the text horizontally */
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
   }
   
   /* Button hover effect */
   .nav-button:hover {
-    background-color: #7a6345; /* Slightly darker brown on hover */
+    background-color: #9c8057; /* Slightly darker brown on hover */
     transform: translateY(-2px); /* Slight lift effect */
   }
   
   /* Button active effect */
   .nav-button:active {
-    background-color: #6a573b; /* Even darker brown when clicked */
+    background-color: #8a6f4b; /* Even darker brown when clicked */
     transform: translateY(0); /* Reset lift effect */
   }
