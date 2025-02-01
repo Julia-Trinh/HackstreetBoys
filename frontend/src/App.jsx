@@ -1,6 +1,19 @@
 import React from 'react'
 import '@mantine/core/styles.css';
 import { createTheme } from '@mantine/core'
+import Home from "./pages/MainPage";
+
+const router = createBrowserRouter([
+  {path : "/Home", element : <Home />},
+  //Add all webpage paths
+]);
+
+export default function App() {
+
+  return (
+      <GlobalStateProvider>
+          <RouterProvider router={router}></RouterProvider>
+      </GlobalStateProvider>
 
 const theme = createTheme({
   colors: {
@@ -21,4 +34,5 @@ const theme = createTheme({
   primaryShade: 1,
 });
 
-export default App
+  );
+}
