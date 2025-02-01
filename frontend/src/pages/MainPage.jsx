@@ -1,12 +1,14 @@
 import React from "react";
 import "./MainPage.css";
+import Logo from "../components/SiteLogo.jsx";
 
 function MainPage() {
 
     return (
-            <body>
-                <h1 class={"siteName"}>Welcome to the Main Page</h1>
-            </body>
+        <>
+            <Logo></Logo>
+            <h1 className="siteName">Welcome to the Main Page</h1>
+        </>
     )
 
 
