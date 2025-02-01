@@ -9,5 +9,6 @@ Currently, two official plugins are available:
 
 
 # How to Run
+``cd frontend``
 ```npm install```
 ```npm run dev```
