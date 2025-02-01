@@ -4,6 +4,7 @@ import Header from './components/Header';
 import NavBar from './components/NavBar';
 import Home from "./pages/MainPage.jsx";
 import Game from "./pages/TestGame";
+import Username from "./pages/UserName.jsx";
 
 const Layout = () => {
   return (
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
       {
         path : "game", 
         element : <Game />
+      },
+      {
+        path: "username",
+        element: <Username />,
       }
     ],
   },
