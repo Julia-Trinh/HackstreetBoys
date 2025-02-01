@@ -1,8 +1,4 @@
-@font-face { font-family: western; src: url('./magnificent_west/Magnificent_West.ttf'); } 
-h1 {
-    font-family: western;
 
-}
 body {
     height: 100vh; /* Full viewport height */
     background: linear-gradient(to top, #ebab36,#e5c795, #ffeedf);

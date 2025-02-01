@@ -1,4 +1,5 @@
-import React from 'react'
+import React from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom"; // Import React Router
 import Home from "./pages/MainPage";
 import NavBar from './components/NavBar'
 
