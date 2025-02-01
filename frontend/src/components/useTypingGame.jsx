@@ -40,7 +40,7 @@ export const useTypingGame = (textFileName, onVictory) => {
   }, [characters, currentIndex]);
 
   useEffect(() => {
-    if (currentIndex >= characters.length && onVictory) {
+    if (characters.length > 0 && currentIndex === characters.length && onVictory) {
       onVictory();
     }
   }, [currentIndex, characters.length, onVictory]);
