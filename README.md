@@ -1,13 +1,13 @@
-# HackstreetBoys
+# React + Vite
 
-https://www.youtube.com/watch?v=SV0o0qOmKOQ&ab_channel=AustinDavis
-https://www.youtube.com/watch?v=Ma6DRDIedVE
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-```cd backend```
-```npm install mongodb```
-```npm install dotenv```
+Currently, two official plugins are available:
 
-To frontend:
-```cd dumbwaystodie```
-(in case it fails `npm install`)
-```npm run start```
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+
+# How to Run
+```npm install```
+```npm run dev```
