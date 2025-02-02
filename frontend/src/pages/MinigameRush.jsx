@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom"; // to get the passed state
+import { useLocation } from "react-router-dom";
+import axios from "axios";
 import StandOff from "./games/StandOff";
 import SuddenDeath from "./games/SuddenDeath";
 import TestGame from "./games/TestGame";
@@ -10,6 +11,7 @@ const GameMode = () => {
     const [score, setScore] = useState(0);
     const [currentPhase, setCurrentPhase] = useState("intermediary"); // "intermediary" | "minigame"
     const [currentGame, setCurrentGame] = useState(null);
+    const [hasPostedRecord, setHasPostedRecord] = useState(false); // State to track if record has been posted
 
     // Get username from location state
     const location = useLocation();
@@ -25,14 +27,14 @@ const GameMode = () => {
     const minigames = [TestGame, SuddenDeath, StandOff];
 
     useEffect(() => {
-        if (lives <= 0) return; // Stop game when out of lives
+        if (lives <= 0 || hasPostedRecord) return; // Stop game when out of lives or if the record has been posted
 
         if (currentPhase === "intermediary") {
             setTimeout(() => {
                 startNewMinigame();
             }, 5000);
         }
-    }, [currentPhase, lives]);
+    }, [currentPhase, lives, hasPostedRecord]); // Add hasPostedRecord to dependencies
 
     const startNewMinigame = () => {
         const RandomGame = minigames[Math.floor(Math.random() * minigames.length)];
@@ -48,6 +50,26 @@ const GameMode = () => {
         }
         setCurrentPhase("intermediary");
     };
+
+    // Post the record when the game is over
+    const postRecord = async (username, numberOfVictories) => {
+        try {
+            const response = await axios.post("http://localhost:5000/add_record", {
+                username,
+                numberOfVictories
+            });
+            console.log("Record added:", response.data);
+        } catch (err) {
+            console.error("Error posting record:", err);
+        }
+    };
+
+    useEffect(() => {
+        if (lives <= 0 && !hasPostedRecord) {
+            postRecord(username, score);
+            setHasPostedRecord(true); // Mark record as posted to prevent duplicate requests
+        }
+    }, [lives, username, score, hasPostedRecord]);
 
     if (lives <= 0) {
         return <h1>Game Over! Final Score: {score}</h1>;
