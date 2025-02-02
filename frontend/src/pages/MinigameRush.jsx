@@ -1,8 +1,8 @@
 
 import React, { useState, useEffect } from "react";
-import StandOff from "./StandOff";
-import SuddenDeath from "./SuddenDeath";
-import TestGame from "./TestGame";
+import StandOff from "./games/StandOff";
+import SuddenDeath from "./games/SuddenDeath";
+import TestGame from "./games/TestGame";
 
 const GameMode = () => {
     const [lives, setLives] = useState(3);
