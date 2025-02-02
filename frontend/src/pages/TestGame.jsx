@@ -3,7 +3,7 @@ import { useTypingGame } from '../components/useTypingGame';
 
 const Game = () => {
     const [gameOver, setGameOver] = useState(false); // Track game-over state
-    const [timeLimit, setTimeLimit] = useState(10);
+    const [timeLimit, setTimeLimit] = useState(15);
     const [victory, setVictory] = useState(false);
     const [failure, setFailure] = useState(false);
 
