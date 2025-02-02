@@ -3,7 +3,7 @@ import { useTypingGame } from '../../components/useTypingGame';
 
 const RattleOff = ({onGameEnd, gameDepth}) => {
     const [gameOver, setGameOver] = useState(false); // Track game-over state
-    const [timeLimit, setTimeLimit] = useState(15 - (gameDepth/3));
+    const [timeLimit, setTimeLimit] = useState(Math.max(15 - (gameDepth/3), 10));
     const [victory, setVictory] = useState(false);
     const [failure, setFailure] = useState(false);
 
