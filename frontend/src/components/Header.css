@@ -1,10 +1,30 @@
-/* Header container */
+/* Import Western-Style Font */
+@import url('https://fonts.googleapis.com/css2?family=Rye&display=swap');
+
 .app-header {
-    background-color: #370F03; /* Brown background */
+    background: linear-gradient(to bottom, #FFF3E9, #FFCA9B);
     color: white; /* White text */
-    padding: 20px;
+    padding: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
     display: flex;
     align-items: center; /* Vertically center the content */
     justify-content: center; /* Horizontally center the content */
-  }
+}
+
+.app-title {
+    font-size: 3.5rem;
+    font-weight: bold;
+    font-family: 'Rye', cursive;
+    color: #370F03;
+    margin: 0; /* Remove margin to align properly */
+    letter-spacing: 2px;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center; /* Vertically center the text with the logo */
+}
+
+.app-logo {
+    height: 70px; /* Adjust based on your logo's size */
+    width: 70px;
+    margin-left: 10px; /* Space between text and logo */
+}

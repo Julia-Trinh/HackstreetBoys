@@ -6,9 +6,9 @@ const Header = () => {
     return (
       <header className="app-header">
         <h1 className="app-title">
-          Dumb Ways to Die
-          <img src={logo} alt="Logo" className="app-logo" />
+          DUMB WAYS TO TYPE
         </h1>
+        <img src={logo} alt="Logo" className="app-logo" />
       </header>
     );
 };
