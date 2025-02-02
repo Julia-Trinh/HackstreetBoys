@@ -54,13 +54,14 @@ const Game = ({onGameEnd}) => {
 
     return (
         <div className="game-container">
-            <Timer timeLimit={timeLimit} timeElapsed={elapsedTime}/>
             {!showGame ? (
                 <h1 className="loading-text">Get Ready...</h1>
             ) : (
                 <>  
+                            <Timer timeLimit={timeLimit} timeElapsed={elapsedTime}/>
+
                     <h1>Stand-Off</h1>
-                    <p className="timer"> Time Remaining: {timeLimit - elapsedTime} seconds</p>
+                    
                     
                     {gameOver ? (
                         <div>

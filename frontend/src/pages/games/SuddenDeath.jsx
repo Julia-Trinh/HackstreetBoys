@@ -49,7 +49,6 @@ const Game = ({onGameEnd}) => {
         <div>
             <Timer timeLimit={timeLimit} timeElapsed={elapsedTime}/>
             <h1>SuddenDeath</h1>
-            <p>Time Remaining: {timeLimit - elapsedTime} seconds</p>
             {gameOver ? (
                 <div>
                 {victory ? (<div>Congrats!</div>):(<div>You suck!</div>)}

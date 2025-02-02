@@ -47,8 +47,7 @@ const TestGame = ({onGameEnd}) => {
     return (
         <div>
             <Timer timeLimit={timeLimit} timeElapsed={elapsedTime}/>
-            <h1>MiniGame 1</h1>
-            <p>Time Remaining: {timeLimit - elapsedTime} seconds</p>
+            <h1>Typerace</h1>
             {gameOver ? (
                 <div>
                     {victory ? (<div>Congrats!</div>):(<div>You suck!</div>)}
