@@ -4,6 +4,18 @@ body {
     margin: 0; /* Remove default margin */
     display: flex;
     flex-direction: column; /* Stack children vertically */
+    
+}
+
+.siteName{ 
+    font-size: 2em;
+    font-weight: bold;
+    color: #5C755E;
+    margin: 0;
+    padding: 10px;
+    text-align: center;
+    
+
 }
 
 /* Optional: Ensure the main content area grows to fill available space */
