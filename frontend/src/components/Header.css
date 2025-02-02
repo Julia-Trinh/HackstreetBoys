@@ -3,12 +3,12 @@
 
 .app-header {
     background: #DEC7A9;
-    color: white; /* White text */
+    color: white;
     padding: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     display: flex;
-    align-items: center; /* Vertically center the content */
-    justify-content: center; /* Horizontally center the content */
+    align-items: center;
+    justify-content: center;
 }
 
 .app-title {
@@ -16,15 +16,15 @@
     font-weight: bold;
     font-family: 'Rye', cursive;
     color: #370F03;
-    margin: 0; /* Remove margin to align properly */
+    margin: 0; 
     letter-spacing: 2px;
     text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.4);
     display: flex;
-    align-items: center; /* Vertically center the text with the logo */
+    align-items: center;
 }
 
 .app-logo {
-    height: 70px; /* Adjust based on your logo's size */
+    height: 70px;
     width: 70px;
-    margin-left: 10px; /* Space between text and logo */
+    margin-left: 10px; 
 }

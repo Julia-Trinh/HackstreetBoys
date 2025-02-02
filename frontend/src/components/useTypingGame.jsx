@@ -8,8 +8,8 @@ export const useTypingGame = (textFileName, checkVictory, checkFailure, timeLimi
   const [failure, setFailure] = useState(false);
   const [elapsedTime, setElapsedTime] = useState(0);
   
-  const gameEnded = useRef(false); // Prevent duplicate game over/victory states
-  const timerRef = useRef(null); // Store timer ID
+  const gameEnded = useRef(false); 
+  const timerRef = useRef(null); 
 
   useEffect(() => {
     if (gameEnded.current) return;
@@ -66,7 +66,7 @@ export const useTypingGame = (textFileName, checkVictory, checkFailure, timeLimi
 
     if (checkVictory && checkVictory(currentIndex, characters.length)) {
       endGame(true);
-      return; // Stop further execution
+      return; 
     }
 
     if (checkFailure && checkFailure(currentIndex, characters.length)) {
@@ -74,12 +74,11 @@ export const useTypingGame = (textFileName, checkVictory, checkFailure, timeLimi
     }
   }, [currentIndex, characters.length, checkVictory, checkFailure]);
 
-  // Function to stop the game and prevent duplicate alerts
   const endGame = (isVictory) => {
-    if (gameEnded.current) return; // Ensure it only runs once
+    if (gameEnded.current) return;
 
     gameEnded.current = true;
-    clearInterval(timerRef.current); // Stop the timer
+    clearInterval(timerRef.current);
     if (isVictory) setVictory(true);
     else setFailure(true);
   };
