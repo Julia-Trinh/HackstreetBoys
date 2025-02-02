@@ -1,3 +1,6 @@
+/* Import Western-Style Font */
+@import url('https://fonts.googleapis.com/css2?family=Rye&display=swap');
+
 body {
     min-height: 100vh; 
     background: linear-gradient(to top, #ebab36, #e5c795, #ffeedf);
@@ -6,6 +9,7 @@ body {
     flex-direction: column; 
     
 }
+
 
 .siteName{ 
     font-size: 2em;
@@ -18,7 +22,32 @@ body {
 
 }
 
-
 main {
     flex: 1; 
 }
+.team-list {
+    list-style: none;
+    padding: 0;
+    font-size: 1.1rem;
+    font-family: 'Alfa Slab One', cursive;
+
+    
+}
+.team-list li {
+    margin: 8px 0;
+    color: black;
+    font-weight: 500;
+}
+.main-container {
+    max-width: 800px; /* Limits width for better readability */
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 15px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    border: 4px solid #6b4226; 
+    top: 20%;
+    left: 20%;
+    
+}
+

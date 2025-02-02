@@ -5,6 +5,7 @@ import TextField from "../components/TextField";
 function MainPage() {
 
     return (
+        <div className="main-container">
         <>
              <h2>🎮 About Our Project</h2>
             <p>
@@ -23,12 +24,13 @@ function MainPage() {
 
             <h2>🤝 Meet the Team</h2>
             <ul className="team-list">
-                <li>🔹 <strong>[Your Name]</strong> - Developer</li>
-                <li>🔹 <strong>[Teammate Name]</strong> - Game Logic & Mechanics</li>
-                <li>🔹 <strong>[Teammate Name]</strong> - UI/UX Design</li>
-                <li>🔹 <strong>[Teammate Name]</strong> - Backend & Database</li>
+                <li>🔹 <strong>Hoang Vu Luu</strong></li>
+                <li>🔹 <strong>Haichuan Li</strong></li>
+                <li>🔹 <strong>Julia Trinh</strong></li>
+                <li>🔹 <strong>Jeremie Beaudoin</strong></li>
             </ul>
         </>
+        </div>
     )
 
 
