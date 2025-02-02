@@ -1,14 +1,26 @@
-
 import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom"; // to get the passed state
 import StandOff from "./games/StandOff";
 import SuddenDeath from "./games/SuddenDeath";
 import TestGame from "./games/TestGame";
 
 const GameMode = () => {
+    const [username, setUsername] = useState("");
     const [lives, setLives] = useState(3);
     const [score, setScore] = useState(0);
     const [currentPhase, setCurrentPhase] = useState("intermediary"); // "intermediary" | "minigame"
     const [currentGame, setCurrentGame] = useState(null);
+
+    // Get username from location state
+    const location = useLocation();
+    const passedUsername = location.state?.username;
+
+    // Set the username in state
+    useEffect(() => {
+        if (passedUsername) {
+            setUsername(passedUsername);
+        }
+    }, [passedUsername]);
 
     const minigames = [TestGame, SuddenDeath, StandOff];
 
@@ -23,7 +35,7 @@ const GameMode = () => {
     }, [currentPhase, lives]);
 
     const startNewMinigame = () => {
-        const RandomGame = TestGame;//minigames[Math.floor(Math.random() * minigames.length)];
+        const RandomGame = TestGame; //minigames[Math.floor(Math.random() * minigames.length)];
         setCurrentGame(() => RandomGame);
         setCurrentPhase("minigame");
     };
@@ -43,6 +55,7 @@ const GameMode = () => {
 
     return (
         <div>
+            <h1>Welcome, {username}!</h1> {/* Display the username */}
             {currentPhase === "intermediary" ? (
                 <div>
                     <h2>Lives: {lives}</h2>
@@ -57,4 +70,3 @@ const GameMode = () => {
 };
 
 export default GameMode;
-
