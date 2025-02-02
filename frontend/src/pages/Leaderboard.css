@@ -1,14 +1,12 @@
 /* Import Western-Style Font */
 @import url('https://fonts.googleapis.com/css2?family=Rye&display=swap');
 
-/* Leaderboard Container */
 .leaderboard-container {
     text-align: center;
     font-family: 'Alfa Slab One', cursive;
     padding: 20px;
 }
 
-/* Leaderboard Title */
 .leaderboard-title {
     font-size: 2.5rem;
     font-weight: bold;
@@ -19,7 +17,6 @@
     text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.4);
 }
 
-/* Table Styling */
 .leaderboard-table {
     width: 60%;
     margin: 0 auto;
@@ -31,7 +28,6 @@
     border: 2px solid #370F03;
 }
 
-/* Table Header */
 .leaderboard-header th {
     background: #C5812F;
     color: #370F03;
@@ -41,7 +37,6 @@
     border-bottom: 1px solid #370F03;
 }
 
-/* Table Row */
 .leaderboard-row td {
     padding: 10px;
     font-size: 1rem;
@@ -50,7 +45,6 @@
     text-align: center;
 }
 
-/* Alternating Row Colors */
 .leaderboard-row:nth-child(odd) {
     background: #f5d5ad;
 }
@@ -59,14 +53,12 @@
     background: #ffedd6;
 }
 
-/* Hover Effect */
 .leaderboard-row:hover {
     background: #d6b189;
     color: white;
     transition: 0.3s;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
     .leaderboard-table {
         width: 90%;

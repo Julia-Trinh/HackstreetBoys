@@ -1,4 +1,5 @@
 body {
+
     background: linear-gradient(to top, #ebab36, #e5c795, #ffeedf);
     margin: 0;
     display: flex;
@@ -18,5 +19,8 @@ body {
 }
 
 main {
+
     flex: 1; 
+
+
 }

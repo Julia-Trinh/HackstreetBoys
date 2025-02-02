@@ -1,56 +1,48 @@
 /* Import Western-Style Font */
 @import url('https://fonts.googleapis.com/css2?family=Rye&display=swap');
 
-/* Game Container */
-/* Navbar container */
 .navbar-container {
-    background-color: #DEC7A9; /* Darker brown background */
-    padding: 0; /* Remove horizontal padding */
-    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    width: 100%; /* Ensure the navbar spans the full width */
+    background-color: #DEC7A9;
+    padding: 0;
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
     display: flex;
-    justify-content: center; /* Center the buttons container horizontally */
+    justify-content: center;
     border-bottom: 2px solid #370F03;
 }
 
-/* Container for the buttons */
 .navbar-buttons {
     display: flex;
-    width: 80%; /* Adjust the width of the buttons container */
-    max-width: 800px; /* Optional: Set a max-width for better control */
-    margin: 0 auto; /* Center the container horizontally */;
-
+    width: 80%;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
-/* Button styling */
 .nav-button {
-    background-color: #DEC7A9; /* Lighter brown background */
-    color: white; /* White text */
+    background-color: #DEC7A9;
+    color: white;
     border: none;
-    padding: 15px 0; /* Increase vertical padding */
+    padding: 15px 0;
     font-size: 16px;
     font-family: 'Alfa Slab One', cursive;
     font-weight: bold;
     letter-spacing: 1px;
     text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.4);
     color: #5a3d1e;
-    flex: 1; /* Distribute space evenly among buttons */
-    text-align: center; /* Center the text horizontally */
+    flex: 1;
+    text-align: center;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
     border-radius: 10px;
-    margin: 5px; /* Add some space between buttons */
+    margin: 5px;
 }
 
-
-/* Button hover effect */
 .nav-button:hover {
-    background-color: #F2CB86; /* Slightly darker brown on hover */
-    transform: translateY(-2px); /* Slight lift effect */
+    background-color: #F2CB86; 
+    transform: translateY(-2px); 
 }
 
-/* Button active effect */
 .nav-button:active {
-    background-color: #F2CB86; /* Even darker brown when clicked */
-    transform: translateY(0); /* Reset lift effect */
+    background-color: #F2CB86;
+    transform: translateY(0);
 }
