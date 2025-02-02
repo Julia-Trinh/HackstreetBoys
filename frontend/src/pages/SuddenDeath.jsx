@@ -4,9 +4,11 @@ import { useTypingGame } from '../components/useTypingGame';
 const Game = () => {
     const [gameOver, setGameOver] = useState(false); // Track game-over state
     const [timeLimit, setTimeLimit] = useState(30);
+    const [victory, setVictory] = useState(false);
+    const [failure, setFailure] = useState(false);
 
-    const checkVictory = () => {
-        alert('Victory! You completed the text.');
+    const checkVictory = (currentIndex, totalLength) => {
+        return currentIndex === totalLength && totalLength > 0;
     };
 
     const checkFailure = (currentIndex, totalLength) => {
@@ -17,25 +19,29 @@ const Game = () => {
         return incorrectIndexes.length >= 1;
     };
 
-    const { characters, currentIndex, incorrectIndexes, gameOver: gameStatus, elapsedTime } = useTypingGame(
-        "SuddenDeath.txt", // Example text file
-        checkVictory,
-        checkFailure,
-        timeLimit
-    );
+    const { characters, currentIndex, incorrectIndexes, gameVictory, gameFailure, elapsedTime } = useTypingGame(
+            "SuddenDeath.txt", // Example text file
+            checkVictory,
+            checkFailure,
+            timeLimit
+        );
 
     useEffect(() => {
-        if (gameStatus) {
-            setGameOver(true);
-        }
-    }, [gameStatus]);
+            if (gameVictory || gameFailure) {
+                setGameOver(true);
+                setVictory(gameVictory);
+                setFailure(gameFailure);
+            }
+        }, [gameVictory, gameFailure]);
 
     return (
         <div>
             <h1>SuddenDeath</h1>
             <p>Time Remaining: {timeLimit - elapsedTime} seconds</p>
             {gameOver ? (
-                <div>Game Over! You made too many mistakes.</div>
+                <div>
+                {victory ? (<div>Congrats!</div>):(<div>You suck!</div>)}
+            </div>
             ) : (
                 <div>
                     {characters.map((char, index) => (
