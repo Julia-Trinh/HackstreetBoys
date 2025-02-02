@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Rye&display=swap');
 
 .app-header {
-    background: linear-gradient(to bottom, #FFF3E9, #FFCA9B);
+    background: #DEC7A9;
     color: white; /* White text */
     padding: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
