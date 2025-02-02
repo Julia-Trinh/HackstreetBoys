@@ -5,7 +5,7 @@ import Timer from '../../components/Timer';
 
 const Game = ({onGameEnd, gameDepth}) => {
     const [gameOver, setGameOver] = useState(false); // Track game-over state
-    const [timeLimit, setTimeLimit] = useState(Math.max(20 - (gameDepth/2), 10));
+    const [timeLimit, setTimeLimit] = useState(Math.max(20 - (gameDepth/3), 10));
     const [victory, setVictory] = useState(false);
     const [failure, setFailure] = useState(false);
 

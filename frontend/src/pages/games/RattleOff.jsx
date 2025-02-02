@@ -6,7 +6,7 @@ import Timer from '../../components/Timer';
 const RattleOff = ({onGameEnd, gameDepth}) => {
     const [gameOver, setGameOver] = useState(false); // Track game-over state
     const safeGameDepth = Number.isFinite(gameDepth) ? gameDepth : 0;
-    const [timeLimit, setTimeLimit] = useState(Math.max(15 - (safeGameDepth / 3), 10));
+    const [timeLimit, setTimeLimit] = useState(Math.max(15 - (safeGameDepth / 6), 10));
     const [victory, setVictory] = useState(false);
     const [failure, setFailure] = useState(false);
 
