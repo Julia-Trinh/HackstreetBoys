@@ -38,7 +38,7 @@ const GameMode = () => {
         if (lives <= 0 || hasPostedRecord) return; // Stop game when out of lives or if the record has been posted
 
         if (currentPhase === "intermediary") {
-            const MinigameIndex = Math.floor(Math.randon() * minigames.length);
+            const MinigameIndex = Math.floor(Math.random() * minigames.length);
             const RandomGame = minigames[MinigameIndex];
             setCurrentGame(() => RandomGame);
 
@@ -117,7 +117,7 @@ return (
         {/* Mini-Game UI - Visible only during gameplay */}
         {currentPhase === "minigame" && (
             <div className="minigame-container">
-                {currentGame && React.createElement(currentGame, { onGameEnd: handleGameEnd })}
+                {currentGame && React.createElement(currentGame, { onGameEnd: handleGameEnd,  gameDepth : completedMinigames})}
             </div>
         )}
     </div>

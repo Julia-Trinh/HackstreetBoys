@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useTypingGame } from '../../components/useTypingGame';
+import Timer from '../../components/Timer';
+
 
 const RattleOff = ({onGameEnd, gameDepth}) => {
+    console.log(gameDepth);
     const [gameOver, setGameOver] = useState(false); // Track game-over state
-    const [timeLimit, setTimeLimit] = useState(Math.max(15 - (gameDepth/3), 10));
+    const safeGameDepth = Number.isFinite(gameDepth) ? gameDepth : 0;
+    const [timeLimit, setTimeLimit] = useState(Math.max(15 - (safeGameDepth / 3), 10));
     const [victory, setVictory] = useState(false);
     const [failure, setFailure] = useState(false);
 
@@ -48,7 +52,7 @@ const RattleOff = ({onGameEnd, gameDepth}) => {
     return (
         <div>
             <h1>Rattle Off</h1>
-            <p>Time Remaining: {timeLimit - elapsedTime} seconds</p>
+            <Timer timeLimit={timeLimit} timeElapsed={elapsedTime}/>
             {gameOver ? (
                 <div>
                     {victory ? (<div>Congrats!</div>):(<div>You suck!</div>)}

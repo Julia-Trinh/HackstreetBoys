@@ -60,7 +60,6 @@ const Game = ({onGameEnd, gameDepth}) => {
             ) : (
                 <>  
                     <h1>Stand-Off</h1>
-                    <p className="timer"> Time Remaining: {timeLimit - elapsedTime} seconds</p>
                     
                     {gameOver ? (
                         <div>
