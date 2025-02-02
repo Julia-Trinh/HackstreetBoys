@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { useTypingGame } from '../../components/useTypingGame';
 import Timer from '../../components/Timer';
 
-const Game = ({onGameEnd}) => {
+const Game = ({onGameEnd, gameDepth}) => {
     let delay = 2000; 
-    let countdown = 5;
+    let countdown = 3;
     const [gameOver, setGameOver] = useState(false);
-    const [timeLimit, setTimeLimit] = useState((delay / 1000) + countdown);
+    const [timeLimit, setTimeLimit] = useState((delay / 1000) + (Math.max((countdown-(gameDepth/5)), 1)));
     const [showGame, setShowGame] = useState(false);
     const [victory, setVictory] = useState(false);
     const [failure, setFailure] = useState(false);
