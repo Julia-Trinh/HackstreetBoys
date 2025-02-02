@@ -1,14 +1,16 @@
 import React from 'react';
-import Logo from "../components/SiteLogo.jsx";
 import './Header.css';
+import logo from '../assets/logo.png';
 
 const Header = () => {
     return (
       <header className="app-header">
-        {/* <h1 className="app-title">Dumb Ways to Die</h1> */}
-        <Logo className="site-logo" />
+        <h1 className="app-title">
+          Dumb Ways to Die
+          <img src={logo} alt="Logo" className="app-logo" />
+        </h1>
       </header>
     );
-  };
+};
 
 export default Header;
