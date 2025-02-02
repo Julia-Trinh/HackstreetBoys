@@ -70,6 +70,6 @@ const Game = ({onGameEnd}) => {
     );
 };
 
-export default Game;
+export default TestGame;
 
 
