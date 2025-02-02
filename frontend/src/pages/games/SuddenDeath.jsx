@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useTypingGame } from '../../components/useTypingGame';
+import Timer from '../../components/Timer';
 
-const Game = ({onGameEnd}) => {
+
+const Game = ({onGameEnd, gameDepth}) => {
     const [gameOver, setGameOver] = useState(false); // Track game-over state
-    const [timeLimit, setTimeLimit] = useState(30);
+    const [timeLimit, setTimeLimit] = useState(Math.max(20 - (gameDepth/2), 10));
     const [victory, setVictory] = useState(false);
     const [failure, setFailure] = useState(false);
 
@@ -45,11 +47,11 @@ const Game = ({onGameEnd}) => {
 
     return (
         <div>
+            <Timer timeLimit={timeLimit} timeElapsed={elapsedTime}/>
             <h1>SuddenDeath</h1>
-            <p>Time Remaining: {timeLimit - elapsedTime} seconds</p>
             {gameOver ? (
                 <div>
-                {victory ? (<div>Congrats!</div>):(<div>You suck!</div>)}
+                {victory ? (<div>Success</div>):(<div>Failure</div>)}
             </div>
             ) : (
                 <div>

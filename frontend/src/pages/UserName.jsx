@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Logo from "../components/SiteLogo.jsx";
 import "./UserName.css";
 
 function Username() {

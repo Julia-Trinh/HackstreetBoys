@@ -1,16 +1,22 @@
+/* Import Western-Style Font */
+@import url('https://fonts.googleapis.com/css2?family=Rye&display=swap');
+
 /* Leaderboard Container */
 .leaderboard-container {
     text-align: center;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Alfa Slab One', cursive;
     padding: 20px;
 }
 
 /* Leaderboard Title */
 .leaderboard-title {
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: bold;
-    color: #B8601D;
+    font-family: 'Rye', cursive;
+    color: #5a3d1e;
     margin-bottom: 20px;
+    letter-spacing: 2px;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.4);
 }
 
 /* Table Styling */
@@ -18,26 +24,29 @@
     width: 60%;
     margin: 0 auto;
     border-collapse: collapse;
-    background: #FFF1E4;
+    background: #370F03;
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border: 2px solid #370F03;
 }
 
 /* Table Header */
 .leaderboard-header th {
     background: #C5812F;
-    color: white;
-    font-size: 1.2rem;
-    padding: 12px;
+    color: #370F03;
+    font-size: 1rem;
+    padding: 8px;
     text-transform: uppercase;
+    border-bottom: 1px solid #370F03;
 }
 
 /* Table Row */
 .leaderboard-row td {
     padding: 10px;
     font-size: 1rem;
-    border-bottom: 1px solid #ddd;
+    color: #5a3d1e;
+    border-bottom: 1px solid #370F03;
     text-align: center;
 }
 
