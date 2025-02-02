@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useTypingGame } from '../components/useTypingGame';
+import { useTypingGame } from '../../components/useTypingGame';
 
 const Game = () => {
     let delay = 2000; 

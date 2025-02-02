@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useTypingGame } from '../components/useTypingGame';
+import { useTypingGame } from '../../components/useTypingGame';
 
 const Game = ({onGameEnd}) => {
     const [gameOver, setGameOver] = useState(false); // Track game-over state
