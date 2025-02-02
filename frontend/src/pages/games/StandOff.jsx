@@ -11,7 +11,6 @@ const Game = ({onGameEnd, gameDepth}) => {
     const [victory, setVictory] = useState(false);
     const [failure, setFailure] = useState(false);
 
-    // Show the game after delay
     useEffect(() => {
         const timer = setTimeout(() => {
             setShowGame(true);
@@ -25,7 +24,7 @@ const Game = ({onGameEnd, gameDepth}) => {
     };
 
     const checkFailure = (currentIndex, totalLength) => {
-        return incorrectIndexes.length >= 100; // Fail if too many mistakes
+        return incorrectIndexes.length >= 100;
     };
 
     const { characters, currentIndex, incorrectIndexes, gameVictory, gameFailure, elapsedTime } = useTypingGame(

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 
-// Function to interpolate between two colors based on a percentage
 const interpolateColor = (startColor, endColor, percentage) => {
     const start = parseInt(startColor.slice(1), 16);
     const end = parseInt(endColor.slice(1), 16);
@@ -24,12 +23,10 @@ const Timer = ({ timeLimit, timeElapsed }) => {
     const [widthPercentage, setWidthPercentage] = useState(100);
 
     useEffect(() => {
-        // Calculate the width percentage based on timeElapsed
-        const adjustedTime = Math.max(0, timeLimit - (timeElapsed + 1));  // Make the bar shrink 1 second faster
+        const adjustedTime = Math.max(0, timeLimit - (timeElapsed + 1));
         setWidthPercentage((adjustedTime / timeLimit) * 100);
     }, [timeElapsed, timeLimit]);
 
-    // Interpolate color based on the percentage of time remaining
     const color = interpolateColor("#5C755E", "#9D1C1C", 1 - (widthPercentage / 100));
 
     return (
@@ -38,9 +35,9 @@ const Timer = ({ timeLimit, timeElapsed }) => {
                 style={{
                     width: `${widthPercentage}%`,
                     height: "100%",
-                    backgroundColor: color, // Set the color dynamically
+                    backgroundColor: color,
                     margin: "0 auto",
-                    transition: "width 1s linear, background-color 1s linear", // Smooth transition
+                    transition: "width 1s linear, background-color 1s linear",
                 }}
             />
         </div>
