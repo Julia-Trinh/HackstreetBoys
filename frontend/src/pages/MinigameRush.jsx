@@ -74,7 +74,7 @@ const GameMode = () => {
     }, [lives, username, score, hasPostedRecord]);
 
     if (lives <= 0) {
-        return <h1>Game Over! Final Score: {score}</h1>;
+        return <h1 className="gameover">Game Over! Final Score: {score}</h1>;
     }
 
     const boxTheme = currentPhase === "intermediary" 
