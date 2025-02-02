@@ -1,17 +1,25 @@
 import React from "react";
 import { createBrowserRouter, RouterProvider, Navigate, Outlet } from "react-router-dom";
+//AI Stuff
+//import { TextGenerationProvider } from 'frontend\src\components\TextGenerationContext.jsx'; //Import into any file we need to generate text
+//import TextField from 'frontend\src\components\TextField.jsx'; //Will have to replace into wtv component we will be using
+
 import Header from './components/Header'; 
 import NavBar from './components/NavBar';
 import Home from "./pages/MainPage.jsx";
 import Game from "./pages/TestGame";
 import Username from "./pages/UserName.jsx";
+import { TextGenerationProvider } from "./components/TextGenerationContext.jsx";
 
 const Layout = () => {
   return (
     <div>
+    <TextGenerationProvider>
+
       <Header />
       <NavBar />
       <Outlet />
+    </TextGenerationProvider>
     </div>
   );
 };
