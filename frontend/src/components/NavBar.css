@@ -5,10 +5,11 @@
 .navbar-container {
     background-color: #DEC7A9; /* Darker brown background */
     padding: 0; /* Remove horizontal padding */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
     width: 100%; /* Ensure the navbar spans the full width */
     display: flex;
     justify-content: center; /* Center the buttons container horizontally */
+    border-bottom: 2px solid #370F03;
 }
 
 /* Container for the buttons */

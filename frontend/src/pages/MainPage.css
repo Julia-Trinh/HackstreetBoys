@@ -1,6 +1,6 @@
 
 body {
-    height: 100vh; /* Full viewport height */
+    height: 120vh; /* Full viewport height */
     background: linear-gradient(to top, #ebab36,#e5c795, #ffeedf);
     margin: 0; /* Remove default margin */
 }
