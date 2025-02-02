@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useTypingGame } from '../components/useTypingGame';
 
-const Game = () => {
+const TestGame = () => {
     const [gameOver, setGameOver] = useState(false); // Track game-over state
     const [timeLimit, setTimeLimit] = useState(10);
     const [victory, setVictory] = useState(false);
@@ -61,6 +61,6 @@ const Game = () => {
     );
 };
 
-export default Game;
+export default TestGame;
 
 
