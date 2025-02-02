@@ -24,6 +24,8 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    animation: slideDown 1s ease-out;
+
 }
 
 /* Different themes for intermediary phase */
@@ -41,6 +43,18 @@
     /*background: linear-gradient(to bottom, #b74f4f, #D54820); */
     border: 4px solid blanchedalmond;
 }
+
+@keyframes slideDown {
+    from {
+        transform: translate(-50%, -120%);
+        opacity: 0;
+    }
+    to {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+}
+
 
 /* MiniGame UI (Separate from intermediary) */
 .minigame-container {
@@ -60,7 +74,8 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border:2px solid black
+    border:2px solid black;
+    animation: slideDown 1s ease-out;
 
 }
 
