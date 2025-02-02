@@ -9,17 +9,17 @@ function MainPage() {
         <>
              <h2>🎮 About Our Project</h2>
             <p>
-                We are <strong>Hackstreet Boys</strong>, a team of passionate developers, designers, and problem solvers united by our love for innovation and technology.
-                Our journey started with a shared vision: to create an engaging and immersive gaming experience that challenges both skill and strategy.
+                We are <strong>Hackstreet Boys</strong>, a team of passionate developers who are making their first foray into game development.
+                Our journey started with a shared vision: to create an entertaining game with our own creative twist on the formula.
             </p>
 
             <h2>🕹️ MiniGame Rush</h2>
             <p>
-                <strong>MiniGame Rush</strong> is a fast-paced, adrenaline-fueled experience where players must navigate through a series of thrilling mini-games, each with its own unique challenge.
-                With limited lives and increasing difficulty, players must stay sharp, react quickly, and strategize to survive.
+                <strong>MiniGame Rush</strong> is a fast-paced, constantly accelerating mini-game gauntlet, each with their unique challenges.
+                With limited lives and increasing difficulty, players must stay sharp, react quickly, and type their heart out to achieve a high score on the leaderboard.
             </p>
             <p>
-                Every game presents a new test of reflexes, logic, and endurance. Will you rise to the challenge and claim victory, or will you be knocked out before the final round?
+                Every game presents a new test of reflexes, grit, and endurance. Will you rise to the challenge and claim victory, or will you have your keycaps knocked clean off?
             </p>
 
             <h2>🤝 Meet the Team</h2>
