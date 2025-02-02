@@ -3,7 +3,8 @@ import { useLocation } from "react-router-dom";
 import axios from "axios";
 import StandOff from "./games/StandOff";
 import SuddenDeath from "./games/SuddenDeath";
-import TestGame from "./games/TestGame";
+import RattleOff from "./games/RattleOff";
+import MinigameParameters from "../components/MinigameParameters"
 import "./MiniGameRush.css";
 
 
@@ -11,6 +12,8 @@ const GameMode = () => {
     const [username, setUsername] = useState("");
     const [lives, setLives] = useState(3);
     const [score, setScore] = useState(0);
+    const [completedMinigames, setCompletedMinigames] = useState(0);
+    const [difficulty, setDifficulty] = useState(1); // 1 | 2 | 3
     const [currentPhase, setCurrentPhase] = useState("intermediary"); // "intermediary" | "minigame"
     const [currentGame, setCurrentGame] = useState(null);
     const [hasPostedRecord, setHasPostedRecord] = useState(false); // State to track if record has been posted
@@ -26,23 +29,33 @@ const GameMode = () => {
         }
     }, [passedUsername]);
 
-    const minigames = [TestGame, SuddenDeath, StandOff];
+    const minigames = [RattleOff, SuddenDeath, StandOff];
+
+
+
 
     useEffect(() => {
         if (lives <= 0 || hasPostedRecord) return; // Stop game when out of lives or if the record has been posted
 
         if (currentPhase === "intermediary") {
+            const MinigameIndex = Math.floor(Math.random() * minigames.length);
+            const RandomGame = minigames[MinigameIndex];
+            setCurrentGame(() => RandomGame);
+
+            const params = MinigameParameters(MinigameIndex, difficulty);
+            
+
             setTimeout(() => {
-                startNewMinigame();
+                setCurrentPhase("minigame");
             }, 5000);
         }
     }, [currentPhase, lives, hasPostedRecord]); // Add hasPostedRecord to dependencies
 
-    const startNewMinigame = () => {
-        const RandomGame = minigames[Math.floor(Math.random() * minigames.length)];
-        setCurrentGame(() => RandomGame);
-        setCurrentPhase("minigame");
-    };
+    useEffect(() =>{
+        if (difficulty == 3) return;
+        if (completedMinigames == 5) setDifficulty(2);
+        if (completedMinigames == 10) setDifficulty(3);
+    }, [completedMinigames]);
 
     const handleGameEnd = (won) => {
         if (won) {
@@ -50,6 +63,7 @@ const GameMode = () => {
         } else {
             setLives((prev) => prev - 1);
         }
+        setCompletedMinigames((prev) => prev + 1);
         setCurrentPhase("intermediary");
     };
 
@@ -94,7 +108,7 @@ return (
                 <div>
                     <h2 className={textTheme}>Lives: {lives}</h2>
                     <h2 className={textTheme}>Score: {score}</h2>
-                    <p className={textTheme}>Get ready for the next game!</p>
+                    <h2 className={textTheme}>Round: {completedMinigames}</h2>
                 </div>
             </div>
         )}
@@ -102,13 +116,11 @@ return (
         {/* Mini-Game UI - Visible only during gameplay */}
         {currentPhase === "minigame" && (
             <div className="minigame-container">
-                {currentGame && React.createElement(currentGame, { onGameEnd: handleGameEnd })}
+                {currentGame && React.createElement(currentGame, { onGameEnd: handleGameEnd,  gameDepth : completedMinigames})}
             </div>
         )}
     </div>
 );
-
-    
 };
 
 export default GameMode;
