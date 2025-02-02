@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useTypingGame } from '../../components/useTypingGame';
 
-const Game = () => {
+const Game = ({onGameEnd}) => {
     let delay = 2000; 
     let countdown = 5;
     const [gameOver, setGameOver] = useState(false);
@@ -41,6 +41,15 @@ const Game = () => {
                 setFailure(gameFailure);
             }
         }, [gameVictory, gameFailure]);
+    
+    useEffect(() => {
+            if (!(gameOver)) return;
+            const timer = setTimeout(() => {
+                onGameEnd(victory);
+            }, 3000);
+        
+            return () => clearTimeout(timer);
+        }, [gameOver]);
 
     return (
         <div className="game-container">

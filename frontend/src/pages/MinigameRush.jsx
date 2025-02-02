@@ -35,7 +35,7 @@ const GameMode = () => {
     }, [currentPhase, lives]);
 
     const startNewMinigame = () => {
-        const RandomGame = TestGame; //minigames[Math.floor(Math.random() * minigames.length)];
+        const RandomGame = minigames[Math.floor(Math.random() * minigames.length)];
         setCurrentGame(() => RandomGame);
         setCurrentPhase("minigame");
     };
