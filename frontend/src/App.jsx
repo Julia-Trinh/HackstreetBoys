@@ -3,9 +3,14 @@ import { createBrowserRouter, RouterProvider, Navigate, Outlet } from "react-rou
 import Header from './components/Header'; 
 import NavBar from './components/NavBar';
 import Home from "./pages/MainPage.jsx";
-import TestGame from "./pages/TestGame";
+import TestGame from "./pages/game/TestGame.jsx";
 import Username from "./pages/UserName.jsx";
 import SuddenDeath from "./pages/SuddenDeath.jsx";
+
+const [recordData, setRecordData] = useState<record>({
+  username: '',
+  numberOfGamesPlayed: 0
+});
 
 const Layout = () => {
   return (
