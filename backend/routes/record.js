@@ -3,11 +3,11 @@ const router = express.Router();
 const Record = require('../models/record');
 
 // Get top 5 records based on number of victories
-router.get('/get_top_5_records', async (req, res) => {
+router.get('/get_top_15_records', async (req, res) => {
     try {
         const records = await Record.find()
             .sort({ numberOfVictories: -1 }) // Sort in descending order to get the highest first
-            .limit(5); // Limit to 5 records
+            .limit(15); // Limit to 15 records
 
         res.status(200).json(records);
     } catch (err) {
