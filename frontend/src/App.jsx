@@ -7,6 +7,8 @@ import TestGame from "./pages/games/TestGame";
 import Username from "./pages/UserName.jsx";
 import SuddenDeath from "./pages/games/SuddenDeath.jsx";
 import StandOff from "./pages/games/StandOff.jsx";
+import MinigameRush from "./pages/MinigameRush.jsx";
+
 
 const Layout = () => {
   return (
@@ -46,6 +48,10 @@ const router = createBrowserRouter([
       {
         path: "standoff",
         element: <StandOff />,
+      },
+      {
+        path: "minigameRush",
+        element: <MinigameRush />,
       }
     ],
   },
