@@ -1,0 +1,70 @@
+/* Leaderboard Container */
+.leaderboard-container {
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    padding: 20px;
+}
+
+/* Leaderboard Title */
+.leaderboard-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #B8601D;
+    margin-bottom: 20px;
+}
+
+/* Table Styling */
+.leaderboard-table {
+    width: 60%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background: #FFF1E4;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Table Header */
+.leaderboard-header th {
+    background: #C5812F;
+    color: white;
+    font-size: 1.2rem;
+    padding: 12px;
+    text-transform: uppercase;
+}
+
+/* Table Row */
+.leaderboard-row td {
+    padding: 10px;
+    font-size: 1rem;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+/* Alternating Row Colors */
+.leaderboard-row:nth-child(odd) {
+    background: #f5d5ad;
+}
+
+.leaderboard-row:nth-child(even) {
+    background: #ffedd6;
+}
+
+/* Hover Effect */
+.leaderboard-row:hover {
+    background: #d6b189;
+    color: white;
+    transition: 0.3s;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .leaderboard-table {
+        width: 90%;
+    }
+    
+    .leaderboard-header th, .leaderboard-row td {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+}

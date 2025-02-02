@@ -8,6 +8,7 @@ import Username from "./pages/UserName.jsx";
 import SuddenDeath from "./pages/games/SuddenDeath.jsx";
 import StandOff from "./pages/games/StandOff.jsx";
 import MinigameRush from "./pages/MinigameRush.jsx";
+import Leaderboard from "./pages/Leaderboard.jsx";
 
 
 const Layout = () => {
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
       {
         path: "minigameRush",
         element: <MinigameRush />,
+      },
+      {
+        path: "leaderboard",
+        element: <Leaderboard />,
       }
     ],
   },
