@@ -3,7 +3,8 @@ require('dotenv').config({ path: './config.env' });
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const recordRoutes = require('./routes/record');
+const fs = require("fs");
+const recordRoutes = require('./routes/record'); 
 const { OpenAI } = require("openai");
 
 const app = express();
@@ -38,6 +39,22 @@ app.post("/generate-text", async (req, res) => {
         console.error("OpenAI API error:", error);
         res.status(500).json({ error: "Failed to generate text" });
     }
+});
+
+app.post("/write-file", (req, res) => {
+    const { text } = req.body;
+
+    // Ensure text is a string before writing to file
+    if (typeof text !== "string") {
+        return res.status(400).json({ message: "Invalid input: text must be a string" });
+    }
+
+    fs.writeFile("../frontend/public/assets/gameText.txt", text, "utf8", (err) => {
+        if (err) {
+            return res.status(500).json({ message: "Error writing file", error: err });
+        }
+        res.json({ message: "File successfully overwritten!" });
+    });
 });
 
 // Routes

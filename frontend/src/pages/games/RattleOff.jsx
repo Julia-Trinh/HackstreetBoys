@@ -4,10 +4,9 @@ import Timer from '../../components/Timer';
 
 
 const RattleOff = ({onGameEnd, gameDepth}) => {
-    console.log(gameDepth);
     const [gameOver, setGameOver] = useState(false); // Track game-over state
     const safeGameDepth = Number.isFinite(gameDepth) ? gameDepth : 0;
-    const [timeLimit, setTimeLimit] = useState(Math.max(15 - (safeGameDepth / 3), 10));
+    const [timeLimit, setTimeLimit] = useState(Math.max(15 - (safeGameDepth / 6), 10));
     const [victory, setVictory] = useState(false);
     const [failure, setFailure] = useState(false);
 
@@ -26,7 +25,7 @@ const RattleOff = ({onGameEnd, gameDepth}) => {
     };
 
     const { characters, currentIndex, incorrectIndexes, gameVictory, gameFailure, elapsedTime } = useTypingGame(
-        "test_text.txt", // Example text file
+        "gameText.txt", // Example text file
         checkVictory,
         checkFailure,
         timeLimit
