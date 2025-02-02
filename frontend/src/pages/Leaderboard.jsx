@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import "./Leaderboard.css";
 
 const Leaderboard = () => {
     const [records, setRecords] = useState([]);
@@ -25,10 +26,10 @@ const Leaderboard = () => {
     if (error) return <p>{error}</p>;
 
     return (
-        <div>
-            <h1>Leaderboard</h1>
-            <table>
-                <thead>
+        <div className="leaderboard-container">
+            <h1 className="leaderboard-title">🏆 Leaderboard 🏆</h1>
+            <table className="leaderboard-table">
+                <thead className="leaderboard-header">
                     <tr>
                         <th>Rank</th>
                         <th>Username</th>
@@ -37,7 +38,7 @@ const Leaderboard = () => {
                 </thead>
                 <tbody>
                     {records.map((record, index) => (
-                        <tr key={index}>
+                        <tr key={index} className="leaderboard-row">
                             <td>{index + 1}</td>
                             <td>{record.username}</td>
                             <td>{record.numberOfVictories}</td>
