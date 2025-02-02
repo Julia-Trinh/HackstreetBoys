@@ -22,7 +22,7 @@ const Game = ({onGameEnd, gameDepth}) => {
     };
 
     const { characters, currentIndex, incorrectIndexes, gameVictory, gameFailure, elapsedTime } = useTypingGame(
-            "SuddenDeath.txt", // Example text file
+            "gameText.txt", // Example text file
             checkVictory,
             checkFailure,
             timeLimit

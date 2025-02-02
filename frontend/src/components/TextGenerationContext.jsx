@@ -55,6 +55,19 @@ export const TextGenerationProvider = ({ children }) => {
 
             const data = await response.json();
             setGeneratedText(data.text);
+
+            const writeResponse = await fetch("http://localhost:5000/write-file", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ text: data.text }), // Send the generated text here
+            });
+    
+            if (!writeResponse.ok) {
+                throw new Error("Failed to write text to file");
+            }
+    
+            console.log("Text written to file successfully");
+            
             return data.text;
         } catch (error) {
             console.error("Error fetching text:", error);
