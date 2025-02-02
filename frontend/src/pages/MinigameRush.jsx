@@ -109,7 +109,6 @@ return (
                     <h2 className={textTheme}>Lives: {lives}</h2>
                     <h2 className={textTheme}>Score: {score}</h2>
                     <h2 className={textTheme}>Round: {completedMinigames}</h2>
-                    <p className={textTheme}>Get ready for the next game!</p>
                 </div>
             </div>
         )}
