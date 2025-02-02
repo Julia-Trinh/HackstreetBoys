@@ -3,7 +3,7 @@ import { createBrowserRouter, RouterProvider, Navigate, Outlet } from "react-rou
 import Header from './components/Header'; 
 import NavBar from './components/NavBar';
 import Home from "./pages/MainPage.jsx";
-import TestGame from "./pages/games/TestGame";
+import RattleOff from "./pages/games/RattleOff";
 import Username from "./pages/UserName.jsx";
 import SuddenDeath from "./pages/games/SuddenDeath.jsx";
 import StandOff from "./pages/games/StandOff.jsx";
@@ -35,8 +35,8 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path : "testGame", 
-        element : <TestGame />
+        path : "RattleOff", 
+        element : <RattleOff />
       },
       {
         path: "username",
@@ -47,11 +47,11 @@ const router = createBrowserRouter([
         element: <SuddenDeath />,
       },
       {
-        path: "standoff",
+        path: "Standoff",
         element: <StandOff />,
       },
       {
-        path: "minigameRush",
+        path: "MinigameRush",
         element: <MinigameRush />,
       },
       {

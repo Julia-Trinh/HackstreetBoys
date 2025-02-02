@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useTypingGame } from '../../components/useTypingGame';
 
-const TestGame = ({onGameEnd}) => {
+const RattleOff = ({onGameEnd, gameDepth}) => {
     const [gameOver, setGameOver] = useState(false); // Track game-over state
-    const [timeLimit, setTimeLimit] = useState(15);
+    const [timeLimit, setTimeLimit] = useState(15 - (gameDepth/3));
     const [victory, setVictory] = useState(false);
     const [failure, setFailure] = useState(false);
+
+    
 
     const checkVictory = (currentIndex, totalLength) => {
         return currentIndex === totalLength && totalLength > 0;
@@ -45,7 +47,7 @@ const TestGame = ({onGameEnd}) => {
 
     return (
         <div>
-            <h1>MiniGame 1</h1>
+            <h1>Rattle Off</h1>
             <p>Time Remaining: {timeLimit - elapsedTime} seconds</p>
             {gameOver ? (
                 <div>
@@ -70,6 +72,6 @@ const TestGame = ({onGameEnd}) => {
     );
 };
 
-export default TestGame;
+export default RattleOff;
 
 

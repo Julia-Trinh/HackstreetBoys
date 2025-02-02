@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import axios from "axios";
 import StandOff from "./games/StandOff";
 import SuddenDeath from "./games/SuddenDeath";
-import TestGame from "./games/TestGame";
+import RattleOff from "./games/RattleOff";
 
 const GameMode = () => {
     const [username, setUsername] = useState("");
@@ -24,7 +24,7 @@ const GameMode = () => {
         }
     }, [passedUsername]);
 
-    const minigames = [TestGame, SuddenDeath, StandOff];
+    const minigames = [RattleOff, SuddenDeath, StandOff];
 
     useEffect(() => {
         if (lives <= 0 || hasPostedRecord) return; // Stop game when out of lives or if the record has been posted
