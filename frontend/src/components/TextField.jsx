@@ -7,7 +7,7 @@ function TextField() {
     const { generateText, generatedText } = useTextGeneration(); 
 
     const handleGenerate = async () => {
-        const text = await generateText(1,1,false,false,false); 
+        const text = await generateText(1,10,false,false,false); 
 
     };
 

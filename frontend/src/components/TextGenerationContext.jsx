@@ -39,7 +39,7 @@ export const TextGenerationProvider = ({ children }) => {
                     complexeWords = true;
                     break;
             }
-            prompt = `generate ${sentence ? "a paragraph with random sentences of a total of " : "a list of a total of"} ${numWords} words with ${capitalize ? "capitalization" : "no capitalization"}. ${numbers ? "Include numbers" : "Do not include numbers"}. ${punctuations ? "Include punctuations" : "No punctuations"}. ${complexeWords ? "Include contractions and hyphenated words" : "Do not include contractions or hyphenated words"}. ${personnalized ? `Emphasize on words containing the letters${focusLetters} ` : ""}. Make sure all the words are gramatically correct and only include the content I asked. Do not include anything else. Separate the words of the paragraph with a single space. Make sure the result follows all my instructions.`;
+            prompt = `generate ${sentence ? "a paragraph with random sentences of a total of " : "a list of a total of"} ${numWords} words with ${capitalize ? "capitalization" : "no capitalization"}. ${numbers ? "Include numbers" : "Do not include numbers"}. ${punctuations ? "Include punctuations" : "No punctuations"}. ${complexeWords ? "Include contractions and hyphenated words" : "Do not include contractions or hyphenated words"}. ${personnalized ? `Emphasize on words containing the letters${focusLetters}. ` : ""} Make sure all the words are gramatically correct and only include the content I asked. Do not include anything else. Separate the words of the paragraph with a single space. Make sure the result follows all my instructions.`;
 
             console.log(prompt);
 
