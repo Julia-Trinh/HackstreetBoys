@@ -37,7 +37,7 @@ const GameMode = () => {
     }, [currentPhase, lives, hasPostedRecord]); // Add hasPostedRecord to dependencies
 
     const startNewMinigame = () => {
-        const RandomGame = TestGame; //minigames[Math.floor(Math.random() * minigames.length)];
+        const RandomGame = minigames[Math.floor(Math.random() * minigames.length)];
         setCurrentGame(() => RandomGame);
         setCurrentPhase("minigame");
     };
