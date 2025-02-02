@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useTypingGame } from '../../components/useTypingGame';
+import Timer from '../../components/Timer';
 
 const TestGame = ({onGameEnd}) => {
     const [gameOver, setGameOver] = useState(false); // Track game-over state
@@ -45,6 +46,7 @@ const TestGame = ({onGameEnd}) => {
 
     return (
         <div>
+            <Timer timeLimit={timeLimit} timeElapsed={elapsedTime}/>
             <h1>MiniGame 1</h1>
             <p>Time Remaining: {timeLimit - elapsedTime} seconds</p>
             {gameOver ? (
