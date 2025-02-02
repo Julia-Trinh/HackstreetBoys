@@ -3,7 +3,7 @@ import { createBrowserRouter, RouterProvider, Navigate, Outlet } from "react-rou
 import Header from './components/Header'; 
 import NavBar from './components/NavBar';
 import Home from "./pages/MainPage.jsx";
-import Game from "./pages/TestGame";
+import TestGame from "./pages/TestGame";
 import Username from "./pages/UserName.jsx";
 import SuddenDeath from "./pages/SuddenDeath.jsx";
 import StandOff from "./pages/StandOff.jsx";
@@ -32,8 +32,8 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path : "game", 
-        element : <Game />
+        path : "testGame", 
+        element : <TestGame />
       },
       {
         path: "username",
