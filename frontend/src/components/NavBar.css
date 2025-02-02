@@ -1,6 +1,7 @@
 /* Import Western-Style Font */
 @import url('https://fonts.googleapis.com/css2?family=Rye&display=swap');
 
+/* Game Container */
 /* Navbar container */
 .navbar-container {
     background-color: #DEC7A9; /* Darker brown background */
@@ -17,7 +18,8 @@
     display: flex;
     width: 80%; /* Adjust the width of the buttons container */
     max-width: 800px; /* Optional: Set a max-width for better control */
-    margin: 0 auto; /* Center the container horizontally */
+    margin: 0 auto; /* Center the container horizontally */;
+
 }
 
 /* Button styling */
@@ -39,6 +41,7 @@
     border-radius: 10px;
     margin: 5px; /* Add some space between buttons */
 }
+
 
 /* Button hover effect */
 .nav-button:hover {
