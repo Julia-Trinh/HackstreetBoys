@@ -6,6 +6,7 @@ import Home from "./pages/MainPage.jsx";
 import Game from "./pages/TestGame";
 import Username from "./pages/UserName.jsx";
 import SuddenDeath from "./pages/SuddenDeath.jsx";
+import StandOff from "./pages/StandOff.jsx";
 
 const Layout = () => {
   return (
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
       {
         path: "Suddendeath",
         element: <SuddenDeath />,
+      },
+      {
+        path: "standoff",
+        element: <StandOff />,
       }
     ],
   },
