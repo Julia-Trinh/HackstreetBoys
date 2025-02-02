@@ -5,6 +5,8 @@ import StandOff from "./games/StandOff";
 import SuddenDeath from "./games/SuddenDeath";
 import RattleOff from "./games/RattleOff";
 import MinigameParameters from "../components/MinigameParameters"
+import "./MiniGameRush.css";
+
 
 const GameMode = () => {
     const [username, setUsername] = useState("");
@@ -89,21 +91,37 @@ const GameMode = () => {
         return <h1>Game Over! Final Score: {score}</h1>;
     }
 
-    return (
-        <div>
-            <h1>Welcome, {username}!</h1> {/* Display the username */}
-            {currentPhase === "intermediary" ? (
+    const boxTheme = currentPhase === "intermediary" 
+    ? (lives === 3 ? "box-green" : lives === 2 ? "box-yellow" : "box-red")
+    : ""; // No theme while game is running
+
+const textTheme = currentPhase === "intermediary"
+    ? (lives === 3 ? "text-green" : lives === 2 ? "text-yellow" : "text-red")
+    : ""; // No theme while game is running
+
+return (
+    <div className="game-container">
+        {/* Intermediary UI - Visible only between rounds */}
+        {currentPhase === "intermediary" && (
+            <div className={`intermediary-container ${boxTheme}`}>
+                <h1 className={textTheme}>Welcome, {username}!</h1>
                 <div>
-                    <h2>Lives: {lives}</h2>
-                    <h2>Score: {score}</h2>
-                    <h2>Round: {completedMinigames}</h2>
-                    <p>Get ready for the next game!</p>
+                    <h2 className={textTheme}>Lives: {lives}</h2>
+                    <h2 className={textTheme}>Score: {score}</h2>
+                    <h2 className={textTheme}>Round: {completedMinigames}</h2>
+                    <p className={textTheme}>Get ready for the next game!</p>
                 </div>
-            ) : (
-                currentGame && React.createElement(currentGame, { onGameEnd: handleGameEnd, gameDepth : completedMinigames })
-            )}
-        </div>
-    );
+            </div>
+        )}
+
+        {/* Mini-Game UI - Visible only during gameplay */}
+        {currentPhase === "minigame" && (
+            <div className="minigame-container">
+                {currentGame && React.createElement(currentGame, { onGameEnd: handleGameEnd })}
+            </div>
+        )}
+    </div>
+);
 };
 
 export default GameMode;
