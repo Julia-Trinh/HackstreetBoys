@@ -1,19 +1,14 @@
-require('dotenv').config({ path: './config.env' }); 
+import express from "express";
+import cors from "cors";
+import dotenv from "dotenv";
+import { OpenAI } from "openai";
 
-const express = require('express');
-const mongoose = require('mongoose');
-const cors = require('cors');
-const recordRoutes = require('./routes/record'); 
-const { OpenAI } = require("openai");
+dotenv.config();
 
 const app = express();
-const port = process.env.PORT || 5000;
-
-// Middleware
 app.use(cors());
 app.use(express.json());
 
-// OpenAI API Configuration
 const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY,
 });
@@ -21,6 +16,7 @@ const openai = new OpenAI({
 app.post("/generate-text", async (req, res) => {
     try {
         const { prompt } = req.body;
+
         const response = await openai.chat.completions.create({
             model: "gpt-4o-mini",
             messages: [{ role: "user", content: prompt }],
@@ -34,19 +30,38 @@ app.post("/generate-text", async (req, res) => {
     }
 });
 
-// Routes
-app.use('/', recordRoutes);
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+require('dotenv').config({ path: './config.env' }); 
 
-// MongoDB Connection
+const express = require('express');
+const mongoose = require('mongoose');
+const cors = require('cors');
+const recordRoutes = require('./routes/record'); 
+const port = 5000;
+
+// Middleware to parse JSON requests
+app.use(express.json());
+
+app.use(cors());
+
+app.use('/', recordRoutes); 
+
+// Connect to MongoDB using the URI from the environment variable
 const atlasUri = process.env.ATLAS_URI;
 mongoose.connect(atlasUri, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
+    useNewUrlParser: true,         // Use the new connection string parser
+    useUnifiedTopology: true      // Use the new Server Discovery and Monitoring engine
 })
-.then(() => console.log('Connected to MongoDB'))
-.catch((error) => console.error('Error connecting to MongoDB:', error));
+.then(() => {
+    console.log('Connected to MongoDB');
+})
+.catch((error) => {
+    console.error('Error connecting to MongoDB:', error);
+});
 
-// Start Server (Only Once)
+
+// Start the server
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });
