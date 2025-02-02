@@ -54,7 +54,7 @@ const RattleOff = ({onGameEnd, gameDepth}) => {
             <Timer timeLimit={timeLimit} timeElapsed={elapsedTime}/>
             {gameOver ? (
                 <div>
-                    {victory ? (<div>Congrats!</div>):(<div>You suck!</div>)}
+                    {victory ? (<div>Success</div>):(<div>Failure</div>)}
                 </div>
             ) : (
                 <div>

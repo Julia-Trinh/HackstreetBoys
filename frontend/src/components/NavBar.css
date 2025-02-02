@@ -3,26 +3,31 @@
 
 /* Navbar container */
 .navbar-container {
-    background-color: #957B56; /* Darker brown background */
+    background-color: #DEC7A9; /* Darker brown background */
     padding: 0; /* Remove horizontal padding */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
     width: 100%; /* Ensure the navbar spans the full width */
-  }
-  
-  /* Container for the buttons */
-  .navbar-buttons {
     display: flex;
-    width: 100%; /* Ensure the container spans the full width */
-  }
-  
-  /* Button styling */
-  .nav-button {
-    background-color: #AE9162; /* Lighter brown background */
+    justify-content: center; /* Center the buttons container horizontally */
+    border-bottom: 2px solid #370F03;
+}
+
+/* Container for the buttons */
+.navbar-buttons {
+    display: flex;
+    width: 80%; /* Adjust the width of the buttons container */
+    max-width: 800px; /* Optional: Set a max-width for better control */
+    margin: 0 auto; /* Center the container horizontally */
+}
+
+/* Button styling */
+.nav-button {
+    background-color: #DEC7A9; /* Lighter brown background */
     color: white; /* White text */
     border: none;
     padding: 15px 0; /* Increase vertical padding */
     font-size: 16px;
-    font-family: 'Rye', cursive;
+    font-family: 'Alfa Slab One', cursive;
     font-weight: bold;
     letter-spacing: 1px;
     text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.4);
@@ -31,16 +36,18 @@
     text-align: center; /* Center the text horizontally */
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
-  }
-  
-  /* Button hover effect */
-  .nav-button:hover {
-    background-color: #9c8057; /* Slightly darker brown on hover */
+    border-radius: 10px;
+    margin: 5px; /* Add some space between buttons */
+}
+
+/* Button hover effect */
+.nav-button:hover {
+    background-color: #F2CB86; /* Slightly darker brown on hover */
     transform: translateY(-2px); /* Slight lift effect */
-  }
-  
-  /* Button active effect */
-  .nav-button:active {
-    background-color: #8a6f4b; /* Even darker brown when clicked */
+}
+
+/* Button active effect */
+.nav-button:active {
+    background-color: #F2CB86; /* Even darker brown when clicked */
     transform: translateY(0); /* Reset lift effect */
-  }
+}

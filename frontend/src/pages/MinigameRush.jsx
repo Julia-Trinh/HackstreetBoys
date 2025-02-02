@@ -100,7 +100,7 @@ const GameMode = () => {
     }, [lives, username, score, hasPostedRecord]);
 
     if (lives <= 0) {
-        return <h1>Game Over! Final Score: {score}</h1>;
+        return <h1 className="gameover">Game Over! Final Score: {score}</h1>;
     }
 
     const boxTheme = currentPhase === "intermediary" 
@@ -116,7 +116,7 @@ return (
         {/* Intermediary UI - Visible only between rounds */}
         {currentPhase === "intermediary" && (
             <div className={`intermediary-container ${boxTheme}`}>
-                <h1 className={textTheme}>Welcome, {username}!</h1>
+                <h1 className={textTheme}> {username}</h1>
                 <div>
                     <h2 className={textTheme}>Lives: {lives}</h2>
                     <h2 className={textTheme}>Score: {score}</h2>

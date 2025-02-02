@@ -10,7 +10,7 @@ const Leaderboard = () => {
     useEffect(() => {
         const fetchRecords = async () => {
             try {
-                const response = await axios.get("http://localhost:5000/get_top_5_records");
+                const response = await axios.get("http://localhost:5000/get_top_15_records");
                 setRecords(response.data);
             } catch (err) {
                 setError("Failed to fetch leaderboard data.");
