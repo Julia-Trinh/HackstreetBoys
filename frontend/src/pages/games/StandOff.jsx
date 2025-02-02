@@ -3,7 +3,7 @@ import { useTypingGame } from '../../components/useTypingGame';
 import Timer from '../../components/Timer';
 
 const Game = ({onGameEnd, gameDepth}) => {
-    let delay = 2000; 
+    const delay = Math.ceil(Math.random() * 3) * 1000 + 1000; // Random delay between 1 and 4 seconds
     let countdown = 3;
     const [gameOver, setGameOver] = useState(false);
     const [timeLimit, setTimeLimit] = useState((delay / 1000) + (Math.max((countdown-(gameDepth/5)), 1)));
@@ -65,7 +65,7 @@ const Game = ({onGameEnd, gameDepth}) => {
                     
                     {gameOver ? (
                         <div>
-                        {victory ? (<div>Congrats!</div>):(<div>You suck!</div>)}
+                        {victory ? (<div>Success</div>):(<div>Failure</div>)}
                     </div>
                     ) : (
                         <div>

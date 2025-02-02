@@ -51,7 +51,7 @@ const Game = ({onGameEnd, gameDepth}) => {
             <h1>SuddenDeath</h1>
             {gameOver ? (
                 <div>
-                {victory ? (<div>Congrats!</div>):(<div>You suck!</div>)}
+                {victory ? (<div>Success</div>):(<div>Failure</div>)}
             </div>
             ) : (
                 <div>
