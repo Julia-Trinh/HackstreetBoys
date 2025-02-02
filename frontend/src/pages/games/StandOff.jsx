@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useTypingGame } from '../../components/useTypingGame';
+import Timer from '../../components/Timer';
 
 const Game = ({onGameEnd}) => {
     let delay = 2000; 
@@ -53,12 +54,14 @@ const Game = ({onGameEnd}) => {
 
     return (
         <div className="game-container">
+            <Timer timeLimit={timeLimit} timeElapsed={elapsedTime}/>
             {!showGame ? (
                 <h1 className="loading-text">Get Ready...</h1>
             ) : (
-                <>
+                <>  
                     <h1>Stand-Off</h1>
                     <p className="timer"> Time Remaining: {timeLimit - elapsedTime} seconds</p>
+                    
                     {gameOver ? (
                         <div>
                         {victory ? (<div>Congrats!</div>):(<div>You suck!</div>)}
