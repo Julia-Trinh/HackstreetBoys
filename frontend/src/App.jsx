@@ -5,6 +5,7 @@ import NavBar from './components/NavBar';
 import Home from "./pages/MainPage.jsx";
 import TestGame from "./pages/TestGame";
 import Username from "./pages/UserName.jsx";
+import SuddenDeath from "./pages/SuddenDeath.jsx";
 
 const Layout = () => {
   return (
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
       {
         path: "username",
         element: <Username />,
+      },
+      {
+        path: "Suddendeath",
+        element: <SuddenDeath />,
       }
     ],
   },
