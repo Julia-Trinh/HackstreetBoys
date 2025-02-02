@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { useTypingGame } from '../components/useTypingGame';
+import { useTypingGame } from '../../components/useTypingGame';
 
-const Game = () => {
+const TestGame = ({onGameEnd}) => {
     const [gameOver, setGameOver] = useState(false); // Track game-over state
-    const [timeLimit, setTimeLimit] = useState(10);
+    const [timeLimit, setTimeLimit] = useState(15);
+    const [victory, setVictory] = useState(false);
+    const [failure, setFailure] = useState(false);
 
-    const checkVictory = () => {
-        alert('Victory! You completed the text.');
+    const checkVictory = (currentIndex, totalLength) => {
+        return currentIndex === totalLength && totalLength > 0;
     };
 
     const checkFailure = (currentIndex, totalLength) => {
@@ -17,7 +19,7 @@ const Game = () => {
         return incorrectIndexes.length >= 5;
     };
 
-    const { characters, currentIndex, incorrectIndexes, gameOver: gameStatus, elapsedTime } = useTypingGame(
+    const { characters, currentIndex, incorrectIndexes, gameVictory, gameFailure, elapsedTime } = useTypingGame(
         "test_text.txt", // Example text file
         checkVictory,
         checkFailure,
@@ -25,17 +27,30 @@ const Game = () => {
     );
 
     useEffect(() => {
-        if (gameStatus) {
+        if (gameVictory || gameFailure) {
             setGameOver(true);
+            setVictory(gameVictory);
+            setFailure(gameFailure);
         }
-    }, [gameStatus]);
+    }, [gameVictory, gameFailure]);
+
+    useEffect(() => {
+        if (!(gameOver)) return;
+        const timer = setTimeout(() => {
+            onGameEnd(victory);
+        }, 3000);
+    
+        return () => clearTimeout(timer);
+    }, [gameOver]);
 
     return (
         <div>
             <h1>MiniGame 1</h1>
             <p>Time Remaining: {timeLimit - elapsedTime} seconds</p>
             {gameOver ? (
-                <div>Game Over! You made too many mistakes.</div>
+                <div>
+                    {victory ? (<div>Congrats!</div>):(<div>You suck!</div>)}
+                </div>
             ) : (
                 <div>
                     {characters.map((char, index) => (
@@ -55,6 +70,6 @@ const Game = () => {
     );
 };
 
-export default Game;
+export default TestGame;
 
 

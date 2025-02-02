@@ -7,9 +7,13 @@ import { createBrowserRouter, RouterProvider, Navigate, Outlet } from "react-rou
 import Header from './components/Header'; 
 import NavBar from './components/NavBar';
 import Home from "./pages/MainPage.jsx";
-import Game from "./pages/TestGame";
+import TestGame from "./pages/games/TestGame";
 import Username from "./pages/UserName.jsx";
 import { TextGenerationProvider } from "./components/TextGenerationContext.jsx";
+import SuddenDeath from "./pages/games/SuddenDeath.jsx";
+import StandOff from "./pages/games/StandOff.jsx";
+import MinigameRush from "./pages/MinigameRush.jsx";
+
 
 const Layout = () => {
   return (
@@ -38,12 +42,24 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path : "game", 
-        element : <Game />
+        path : "testGame", 
+        element : <TestGame />
       },
       {
         path: "username",
         element: <Username />,
+      },
+      {
+        path: "Suddendeath",
+        element: <SuddenDeath />,
+      },
+      {
+        path: "standoff",
+        element: <StandOff />,
+      },
+      {
+        path: "minigameRush",
+        element: <MinigameRush />,
       }
     ],
   },

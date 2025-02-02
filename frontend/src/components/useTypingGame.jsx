@@ -1,37 +1,33 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
-// Custom hook to handle typing game logic
 export const useTypingGame = (textFileName, checkVictory, checkFailure, timeLimitInSeconds) => {
   const [characters, setCharacters] = useState([]);
-  const [currentIndex, setCurrentIndex] = useState(0); // Track the index of the character being typed correctly
-  const [incorrectIndexes, setIncorrectIndexes] = useState([]); // Track incorrect character indexes
-  const [gameOver, setGameOver] = useState(false); // Track if the game is over
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [incorrectIndexes, setIncorrectIndexes] = useState([]);
+  const [victory, setVictory] = useState(false);
+  const [failure, setFailure] = useState(false);
   const [elapsedTime, setElapsedTime] = useState(0);
+  
+  const gameEnded = useRef(false); // Prevent duplicate game over/victory states
+  const timerRef = useRef(null); // Store timer ID
 
   useEffect(() => {
+    if (gameEnded.current) return;
 
-    if (gameOver) return;
-
-    // Start the timer when the game begins
-    const timer = setInterval(() => {
+    timerRef.current = setInterval(() => {
       setElapsedTime((prevTime) => prevTime + 1);
     }, 1000);
 
-    // Cleanup the timer when the game ends
-    return () => clearInterval(timer);
-  }, [gameOver]);
+    return () => clearInterval(timerRef.current);
+  }, []);
 
-  // Check if the time limit is exceeded
   useEffect(() => {
-    if (elapsedTime >= timeLimitInSeconds && !(gameOver)) {
-      setGameOver(true); // End the game if the time limit is reached
-      setElapsedTime(timeLimitInSeconds);
-      alert("Game Over! You failed.");
+    if (elapsedTime >= timeLimitInSeconds && !gameEnded.current) {
+      endGame(false);
     }
   }, [elapsedTime, timeLimitInSeconds]);
 
   useEffect(() => {
-    // Load the text file and split it into characters
     const loadText = async () => {
       try {
         const response = await fetch(`/assets/${textFileName}`);
@@ -46,52 +42,54 @@ export const useTypingGame = (textFileName, checkVictory, checkFailure, timeLimi
   }, [textFileName]);
 
   useEffect(() => {
-    // Event listener for keypresses
     const handleKeyDown = (event) => {
-      if (gameOver) return; // Stop processing if game is over
+      if (gameEnded.current) return;
 
       if (event.key.length === 1) {
-        // Check if the key is correct and update the currentIndex or highlight it as incorrect
         if (characters[currentIndex] && event.key === characters[currentIndex]) {
           setCurrentIndex((prevIndex) => prevIndex + 1);
-          // Reset the background color for the correct character
           setIncorrectIndexes((prev) => prev.filter((index) => index !== currentIndex));
         } else {
-          // If the key is incorrect, highlight the character in red
           setIncorrectIndexes((prev) => [...prev, currentIndex]);
         }
       }
     };
 
     window.addEventListener("keydown", handleKeyDown);
-
-    // Cleanup event listener on component unmount
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [characters, currentIndex, gameOver]);
+  }, [characters, currentIndex]);
 
   useEffect(() => {
-    // Call checkFailure function if a failure condition is met
-    if (checkFailure && checkFailure(currentIndex, characters.length) && !(gameOver)) {
-      setGameOver(true); // Mark the game as over
-      alert("Game Over! You failed.");
-      // Optionally, you can reset the game here if you like:
-      // resetGame();
+    if (gameEnded.current) return;
+
+    if (checkVictory && checkVictory(currentIndex, characters.length)) {
+      endGame(true);
+      return; // Stop further execution
     }
 
-    // Trigger checkVictory callback only when the last character is typed correctly
-    if (characters.length > 0 && currentIndex === characters.length && checkVictory) {
-      checkVictory(); // Call the callback passed as a parameter
+    if (checkFailure && checkFailure(currentIndex, characters.length)) {
+      endGame(false);
     }
   }, [currentIndex, characters.length, checkVictory, checkFailure]);
 
-  // Return the necessary state and functions for the game
+  // Function to stop the game and prevent duplicate alerts
+  const endGame = (isVictory) => {
+    if (gameEnded.current) return; // Ensure it only runs once
+
+    gameEnded.current = true;
+    clearInterval(timerRef.current); // Stop the timer
+    if (isVictory) setVictory(true);
+    else setFailure(true);
+  };
+
   return {
     characters,
     currentIndex,
     incorrectIndexes,
-    gameOver,
+    gameVictory : victory,
+    gameFailure : failure,
     elapsedTime,
   };
 };

@@ -8,7 +8,7 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    timeToCompletion: {
+    numberOfVictories: {
         type: Number,
         required: true
     }
