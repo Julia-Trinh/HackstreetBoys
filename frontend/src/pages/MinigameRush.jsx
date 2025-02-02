@@ -5,7 +5,9 @@ import StandOff from "./games/StandOff";
 import SuddenDeath from "./games/SuddenDeath";
 import RattleOff from "./games/RattleOff";
 import MinigameParameters from "../components/MinigameParameters"
+import { TextGenerationProvider, useTextGeneration } from '../components/TextGenerationContext';
 import "./MiniGameRush.css";
+
 
 
 const GameMode = () => {
@@ -14,6 +16,7 @@ const GameMode = () => {
     const [score, setScore] = useState(0);
     const [completedMinigames, setCompletedMinigames] = useState(0);
     const [difficulty, setDifficulty] = useState(1); // 1 | 2 | 3
+    const { generateText, generatedText } = useTextGeneration();
     const [currentPhase, setCurrentPhase] = useState("intermediary"); // "intermediary" | "minigame"
     const [currentGame, setCurrentGame] = useState(null);
     const [hasPostedRecord, setHasPostedRecord] = useState(false); // State to track if record has been posted
@@ -43,7 +46,7 @@ const GameMode = () => {
             setCurrentGame(() => RandomGame);
 
             const params = MinigameParameters(MinigameIndex, difficulty);
-            
+            const text = generateText(params[0],params[1],params[2]);
 
             setTimeout(() => {
                 setCurrentPhase("minigame");
@@ -77,6 +80,15 @@ const GameMode = () => {
             console.log("Record added:", response.data);
         } catch (err) {
             console.error("Error posting record:", err);
+        }
+    };
+
+    const overwriteFile = async (text) => {
+        try {
+            const response = await axios.post("http://localhost:5000/write-file", { text });
+            console.log("File successfully overwritten:", response.data);
+        } catch (err) {
+            console.error("Error writing file:", err);
         }
     };
 
