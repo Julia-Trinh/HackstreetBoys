@@ -1,7 +1,6 @@
 /* Import Western-Style Font */
 @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
 
-/* Game Container */
 /* .game-container {
     display: flex;
     flex-direction: column;
@@ -11,7 +10,6 @@
     background: linear-gradient(to top, #ebab36, #e5c795, #ffeedf);
 } */
 
-/* Intermediary Interface (Between Games) */
 .intermediary-container {
     text-align: center;
     padding: 40px;
@@ -26,7 +24,6 @@
     transform: translate(-50%, -50%);
 }
 
-/* Different themes for intermediary phase */
 .box-green {
     background: rgba(223, 238, 234, 0.8);
     border: 4px solid #2e7d32;
@@ -42,13 +39,12 @@
     border: 4px solid #b74f4f;
 }
 
-/* MiniGame UI (Separate from intermediary) */
 .minigame-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: #f5deb3; /* Wheat color background */
+    background: #f5deb3; 
     text-align: center;
     padding: 40px;
     border-radius: 20px;
@@ -63,12 +59,10 @@
 
 }
 
-/* Text Colors */
 .text-green { color: #2e7d32; }
 .text-yellow { color: #b7a000; }
 .text-red { color: #b74f4f; }
 
-/* Header Titles */
 h1, h2, p {
     font-family: 'Alfa Slab One', cursive;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);

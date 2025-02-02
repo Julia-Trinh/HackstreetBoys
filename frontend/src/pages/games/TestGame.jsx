@@ -3,7 +3,7 @@ import { useTypingGame } from '../../components/useTypingGame';
 import Timer from '../../components/Timer';
 
 const TestGame = ({onGameEnd}) => {
-    const [gameOver, setGameOver] = useState(false); // Track game-over state
+    const [gameOver, setGameOver] = useState(false);
     const [timeLimit, setTimeLimit] = useState(15);
     const [victory, setVictory] = useState(false);
     const [failure, setFailure] = useState(false);
@@ -14,14 +14,13 @@ const TestGame = ({onGameEnd}) => {
 
     const checkFailure = (currentIndex, totalLength) => {
         if (currentIndex >= totalLength) {
-            return false; // No failure condition yet
+            return false;
         }
-        // Failure condition: after 5 incorrect attempts
         return incorrectIndexes.length >= 5;
     };
 
     const { characters, currentIndex, incorrectIndexes, gameVictory, gameFailure, elapsedTime } = useTypingGame(
-        "test_text.txt", // Example text file
+        "test_text.txt",
         checkVictory,
         checkFailure,
         timeLimit

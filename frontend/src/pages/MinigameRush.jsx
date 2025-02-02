@@ -11,15 +11,13 @@ const GameMode = () => {
     const [username, setUsername] = useState("");
     const [lives, setLives] = useState(3);
     const [score, setScore] = useState(0);
-    const [currentPhase, setCurrentPhase] = useState("intermediary"); // "intermediary" | "minigame"
+    const [currentPhase, setCurrentPhase] = useState("intermediary");
     const [currentGame, setCurrentGame] = useState(null);
-    const [hasPostedRecord, setHasPostedRecord] = useState(false); // State to track if record has been posted
+    const [hasPostedRecord, setHasPostedRecord] = useState(false);
 
-    // Get username from location state
     const location = useLocation();
     const passedUsername = location.state?.username;
 
-    // Set the username in state
     useEffect(() => {
         if (passedUsername) {
             setUsername(passedUsername);
@@ -29,14 +27,14 @@ const GameMode = () => {
     const minigames = [TestGame, SuddenDeath, StandOff];
 
     useEffect(() => {
-        if (lives <= 0 || hasPostedRecord) return; // Stop game when out of lives or if the record has been posted
+        if (lives <= 0 || hasPostedRecord) return;
 
         if (currentPhase === "intermediary") {
             setTimeout(() => {
                 startNewMinigame();
             }, 5000);
         }
-    }, [currentPhase, lives, hasPostedRecord]); // Add hasPostedRecord to dependencies
+    }, [currentPhase, lives, hasPostedRecord]);
 
     const startNewMinigame = () => {
         const RandomGame = minigames[Math.floor(Math.random() * minigames.length)];
@@ -69,7 +67,7 @@ const GameMode = () => {
     useEffect(() => {
         if (lives <= 0 && !hasPostedRecord) {
             postRecord(username, score);
-            setHasPostedRecord(true); // Mark record as posted to prevent duplicate requests
+            setHasPostedRecord(true);
         }
     }, [lives, username, score, hasPostedRecord]);
 
@@ -79,11 +77,11 @@ const GameMode = () => {
 
     const boxTheme = currentPhase === "intermediary" 
     ? (lives === 3 ? "box-green" : lives === 2 ? "box-yellow" : "box-red")
-    : ""; // No theme while game is running
+    : ""; 
 
 const textTheme = currentPhase === "intermediary"
     ? (lives === 3 ? "text-green" : lives === 2 ? "text-yellow" : "text-red")
-    : ""; // No theme while game is running
+    : ""; 
 
 return (
     <div className="game-container">
