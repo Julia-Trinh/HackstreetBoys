@@ -3,7 +3,19 @@ body {
     background: linear-gradient(to top, #ebab36, #e5c795, #ffeedf);
     margin: 0;
     display: flex;
-    flex-direction: column;
+    flex-direction: column; 
+    
+}
+
+.siteName{ 
+    font-size: 2em;
+    font-weight: bold;
+    color: #5C755E;
+    margin: 0;
+    padding: 10px;
+    text-align: center;
+    
+
 }
 
 main {

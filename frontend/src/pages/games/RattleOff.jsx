@@ -2,11 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { useTypingGame } from '../../components/useTypingGame';
 import Timer from '../../components/Timer';
 
-const TestGame = ({onGameEnd}) => {
+
+const RattleOff = ({onGameEnd, gameDepth}) => {
     const [gameOver, setGameOver] = useState(false);
-    const [timeLimit, setTimeLimit] = useState(15);
+    const safeGameDepth = Number.isFinite(gameDepth) ? gameDepth : 0;
+    const [timeLimit, setTimeLimit] = useState(Math.max(15 - (safeGameDepth / 6), 10));
     const [victory, setVictory] = useState(false);
     const [failure, setFailure] = useState(false);
+
+    
 
     const checkVictory = (currentIndex, totalLength) => {
         return currentIndex === totalLength && totalLength > 0;
@@ -20,7 +24,7 @@ const TestGame = ({onGameEnd}) => {
     };
 
     const { characters, currentIndex, incorrectIndexes, gameVictory, gameFailure, elapsedTime } = useTypingGame(
-        "test_text.txt",
+        "gameText.txt",
         checkVictory,
         checkFailure,
         timeLimit
@@ -45,12 +49,11 @@ const TestGame = ({onGameEnd}) => {
 
     return (
         <div>
+            <h1>Rattle Off</h1>
             <Timer timeLimit={timeLimit} timeElapsed={elapsedTime}/>
-            <h1>MiniGame 1</h1>
-            <p>Time Remaining: {timeLimit - elapsedTime} seconds</p>
             {gameOver ? (
                 <div>
-                    {victory ? (<div>Congrats!</div>):(<div>You suck!</div>)}
+                    {victory ? (<div>Success</div>):(<div>Failure</div>)}
                 </div>
             ) : (
                 <div>
@@ -71,6 +74,6 @@ const TestGame = ({onGameEnd}) => {
     );
 };
 
-export default TestGame;
+export default RattleOff;
 
 

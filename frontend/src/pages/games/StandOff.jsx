@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { useTypingGame } from '../../components/useTypingGame';
 import Timer from '../../components/Timer';
 
-const Game = ({onGameEnd}) => {
-    let delay = 2000; 
-    let countdown = 5;
+const Game = ({onGameEnd, gameDepth}) => {
+    const delay = Math.ceil(Math.random() * 3) * 1000 + 1000; // Random delay between 1 and 4 seconds
+    let countdown = 3;
     const [gameOver, setGameOver] = useState(false);
-    const [timeLimit, setTimeLimit] = useState((delay / 1000) + countdown);
+    const [timeLimit, setTimeLimit] = useState((delay / 1000) + (Math.max((countdown-(gameDepth/5)), 1)));
     const [showGame, setShowGame] = useState(false);
     const [victory, setVictory] = useState(false);
     const [failure, setFailure] = useState(false);
@@ -28,7 +28,7 @@ const Game = ({onGameEnd}) => {
     };
 
     const { characters, currentIndex, incorrectIndexes, gameVictory, gameFailure, elapsedTime } = useTypingGame(
-            "StandOff.txt",
+            "gameText.txt", // Example text file
             checkVictory,
             checkFailure,
             timeLimit
@@ -53,17 +53,18 @@ const Game = ({onGameEnd}) => {
 
     return (
         <div className="game-container">
-            <Timer timeLimit={timeLimit} timeElapsed={elapsedTime}/>
             {!showGame ? (
                 <h1 className="loading-text">Get Ready...</h1>
             ) : (
                 <>  
+                            <Timer timeLimit={timeLimit} timeElapsed={elapsedTime}/>
+
                     <h1>Stand-Off</h1>
-                    <p className="timer"> Time Remaining: {timeLimit - elapsedTime} seconds</p>
+                    
                     
                     {gameOver ? (
                         <div>
-                        {victory ? (<div>Congrats!</div>):(<div>You suck!</div>)}
+                        {victory ? (<div>Success</div>):(<div>Failure</div>)}
                     </div>
                     ) : (
                         <div>

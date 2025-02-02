@@ -39,7 +39,8 @@ export const TextGenerationProvider = ({ children }) => {
                     complexeWords = true;
                     break;
             }
-            prompt = `generate ${sentence ? "a paragraph with random sentences of a total of " : "a list of a total of"} ${numWords} words with ${capitalize ? "capitalization" : "no capitalization"}. ${numbers ? "Include numbers" : "Do not include numbers"}. ${punctuations ? "Include punctuations" : "No punctuations"}. ${complexeWords ? "Include contractions and hyphenated words" : "Do not include contractions or hyphenated words"}. ${personnalized ? `Emphasize on words containing the letters${focusLetters}. ` : ""} Make sure all the words are gramatically correct and only include the content I asked. Do not include anything else. Separate the words of the paragraph with a single space. Make sure the result follows all my instructions.`;
+            prompt = `generate ${sentence ? "a paragraph with random sentences of a total of " : "a list of a total of"} ${numWords} words with ${capitalize ? "some letter capitalization" : "no capitalization"}. ${numbers ? "Include numbers" : "Do not include numbers"}. ${punctuations ? "Include punctuations" : "No punctuations"}. ${complexeWords ? "Include contractions and hyphenated words" : "Do not include contractions or hyphenated words"}. ${personnalized ? `Emphasize on words containing the letters ${focusLetters}. ` : ""} Make sure all the words are gramatically correct and only include the content I asked. Do not include anything else. Separate the words of the paragraph with a single space. Make sure the result follows all my instructions.
+            MAKE SURE the result contains EXACTLY ${numWords} words. MAKE SURE the words are separated by a single space. MAKE SURE the words are gramatically correct.`;
 
             console.log(prompt);
 
@@ -55,6 +56,19 @@ export const TextGenerationProvider = ({ children }) => {
 
             const data = await response.json();
             setGeneratedText(data.text);
+
+            const writeResponse = await fetch("http://localhost:5000/write-file", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ text: data.text }), // Send the generated text here
+            });
+    
+            if (!writeResponse.ok) {
+                throw new Error("Failed to write text to file");
+            }
+    
+            console.log("Text written to file successfully");
+            
             return data.text;
         } catch (error) {
             console.error("Error fetching text:", error);
