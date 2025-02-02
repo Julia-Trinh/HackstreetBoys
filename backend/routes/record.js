@@ -2,11 +2,13 @@ const express = require('express');
 const router = express.Router();
 const Record = require('../models/record');
 
+
 router.get('/get_top_15_records', async (req, res) => {
     try {
         const records = await Record.find()
             .sort({ numberOfVictories: -1 }) 
             .limit(15); 
+
 
         res.status(200).json(records);
     } catch (err) {
@@ -23,12 +25,14 @@ router.post('/add_record', async (req, res) => {
         if (!username) missingFields.push('username');
         if (numberOfVictories === undefined) missingFields.push('numberOfVictories');
 
+
         
         return res.status(400).json({
             message: "The following fields are required:",
             missingFields: missingFields,
             username: username || null, 
             numberOfVictories: numberOfVictories || null 
+
         });
     }
 

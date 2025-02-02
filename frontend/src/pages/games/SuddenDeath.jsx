@@ -4,8 +4,8 @@ import Timer from '../../components/Timer';
 
 
 const Game = ({onGameEnd, gameDepth}) => {
-    const [gameOver, setGameOver] = useState(false); // Track game-over state
-    const [timeLimit, setTimeLimit] = useState(Math.max(20 - (gameDepth/3), 10));
+    const [gameOver, setGameOver] = useState(false);
+    const [timeLimit, setTimeLimit] = useState(Math.max(30 - (gameDepth/3), 15));
     const [victory, setVictory] = useState(false);
     const [failure, setFailure] = useState(false);
 
@@ -15,14 +15,13 @@ const Game = ({onGameEnd, gameDepth}) => {
 
     const checkFailure = (currentIndex, totalLength) => {
         if (currentIndex >= totalLength) {
-            return false; // No failure condition yet
+            return false;
         }
-        // Failure condition: SuddenDeath, after 1 incorrect attempt
         return incorrectIndexes.length >= 1;
     };
 
     const { characters, currentIndex, incorrectIndexes, gameVictory, gameFailure, elapsedTime } = useTypingGame(
-            "gameText.txt", // Example text file
+            "gameText.txt", 
             checkVictory,
             checkFailure,
             timeLimit
