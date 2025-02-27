@@ -1,6 +1,12 @@
 # Video Demo
 https://www.youtube.com/watch?v=E6_YSjImO50&ab_channel=HoangVuLuu
 
+# Inspiration
+Following the massive success of the game "Dumb ways to die", we decided to combine the concept with our limited game dev experience and challenge ourselves.
+
+# What it does
+The project consists of multiple mini-games of adjustable difficulty that are time-limited. The goal is to allow the user to improve his typing skills in a fun and challenging way. The website also uses AI to generate scripts personalized to each person according to his level and struggles. For example, someone who messes up words with the letter 'R' will be given an exercise emphasizing that letter.
+
 # Steps to Follow for Installation
 
 ## 1. Install dependencies
